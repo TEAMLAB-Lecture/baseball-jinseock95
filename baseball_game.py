@@ -125,11 +125,13 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
+    print(user_input_number)
     result = False
     if is_digit(user_input_number):
-        if not is_between_100_and_999(user_input_number) & is_duplicated_number(user_input_number):
-            result = True
-            return result
+        if is_between_100_and_999(user_input_number):
+            if not is_duplicated_number(user_input_number):
+                result = True
+                return result
     # ==================================
     return result
 
@@ -157,7 +159,7 @@ def get_not_duplicated_three_digit_number():
     # get_random_number() 함수를 사용하여 random number 생성
     random_number = get_random_number()
 
-    while not is_duplicated_number(random_number):
+    while is_duplicated_number(random_number):
         random_number = get_random_number()
 
     result = random_number
