@@ -130,8 +130,6 @@ def is_validated_number(user_input_number):
         if is_between_100_and_999(user_input_number) & is_duplicated_number(user_input_number):
             result = True
             return result
-    else:
-        result = False
 
     # ==================================
     return result
