@@ -289,7 +289,7 @@ def inputChecker():
         print("Random Number is : ", random_number)
         return random_number, True
     elif one_input == '0' or is_no(one_input):
-        return False
+        return False, False
     else:
         print('Wrong Input, Input again')
         return inputChecker()
