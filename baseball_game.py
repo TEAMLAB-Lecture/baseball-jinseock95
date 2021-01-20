@@ -284,14 +284,10 @@ def is_no(one_more_input):
 def inputChecker():
     one_input = input('You win, one more(Y/N) ?')
     
-    # if one_input == '0' or is_no(one_input) or one_input == 0:
-    if is_no(one_input):
-        game = False
-        return game
-    
-    elif is_yes(one_input):
+    if is_yes(one_input):
         return main()
-        
+    elif one_input == '0' or is_no(one_input):
+        return False
     else:
         print('Wrong Input, Input again')
         return inputChecker()
@@ -314,19 +310,20 @@ def main():
             print('Strikes : {} , Balls : {}'.format(strikes, balls))
 
             if strikes == 3: # 모두 맞췄을 경우,
-                while True:
-                    user_input = input("You win, one more(Y/N) ?")
-                    if is_yes(user_input):
-                        random_number = str(get_not_duplicated_three_digit_number())
-                        print("Random Number is : ", random_number)
-                        break
-                    elif is_no(user_input):
-                        game = False
-                        break
-                    else:
-                        print('Wrong Input, Input again')
 
-                # game = inputChecker() # game 진행 여부 체크
+                # while True:
+                #     user_input = input("You win, one more(Y/N) ?")
+                #     if is_yes(user_input):
+                #         random_number = str(get_not_duplicated_three_digit_number())
+                #         print("Random Number is : ", random_number)
+                #         break
+                #     elif is_no(user_input):
+                #         game = False
+                #         break
+                #     else:
+                #         print('Wrong Input, Input again')
+
+                game = inputChecker() # game 진행 여부 체크
 
         else:
             print('Wrong Input, Input again')
