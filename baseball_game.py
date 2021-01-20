@@ -284,8 +284,8 @@ def is_no(one_more_input):
 def inputChecker():
     one_input = input('You win, one more(Y/N) ?')
     
-    if one_input == '0' or is_no(one_input) or one_input == 0:
-    # if is_no(one_input):
+    # if one_input == '0' or is_no(one_input) or one_input == 0:
+    if is_no(one_input):
         game = False
         return game
     
