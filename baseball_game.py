@@ -298,7 +298,7 @@ def inputChecker():
 
 
 def main():
-
+    print("Play Baseball")
     random_number = str(get_not_duplicated_three_digit_number()) # random_number 생성 및 체크, 세자리가 모두 다른 숫자가 나올 때까지
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
@@ -307,14 +307,26 @@ def main():
     while game:
         user_input = input('Input guess number : ')
         
-        if user_input == '0' or user_input == 0: break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
+        if user_input == '0': break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
 
         if is_validated_number(user_input): # 사용자가 입력한 number 체크, 3가지 조건
             strikes, balls = get_strikes_or_ball(user_input, random_number)
             print('Strikes : {} , Balls : {}'.format(strikes, balls))
 
             if strikes == 3: # 모두 맞췄을 경우,
-                game = inputChecker() # game 진행 여부 체크
+                while True:
+                    user_input = input("You win, one more(Y/N) ?")
+                    if is_yes(user_input):
+                        random_number = str(get_not_duplicated_three_digit_number())
+                        print("Random Number is : ", random_number)
+                        break
+                    elif is_no(user_input):
+                        game = False
+                        break
+                    else:
+                        print('Wrong Input, Input again')
+
+                # game = inputChecker() # game 진행 여부 체크
 
         else:
             print('Wrong Input, Input again')
@@ -323,5 +335,5 @@ def main():
     print("End of the Game")
 
 if __name__ == "__main__":
-    print("Play Baseball")
+    
     main()
