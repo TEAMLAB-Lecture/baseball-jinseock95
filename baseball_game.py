@@ -292,7 +292,7 @@ def inputChecker():
         return main()
         
     else:
-        print('Wrong Input , Input again')
+        print('Wrong Input, Input again')
         return inputChecker()
 
 
@@ -316,7 +316,7 @@ def main():
                 game = inputChecker() # game 진행 여부 체크
 
         else:
-            print('Wrong Input , Input again')
+            print('Wrong Input, Input again')
     # ==================================
     print("Thank you for using this program")
     print("End of the Game")
