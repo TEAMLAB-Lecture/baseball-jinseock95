@@ -306,8 +306,8 @@ def main():
     game = True
     while game:
         user_input = input('Input guess number : ')
-
-        if user_input == '0': break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
+        
+        if user_input == '0' or user_input == 0: break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
 
         if is_validated_number(user_input): # 사용자가 입력한 number 체크, 3가지 조건
             strikes, balls = get_strikes_or_ball(user_input, random_number)
