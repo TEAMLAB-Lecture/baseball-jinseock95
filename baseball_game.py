@@ -125,7 +125,7 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    print(user_input_number)
+
     result = False
     if is_digit(user_input_number):
         if is_between_100_and_999(user_input_number):
@@ -159,7 +159,7 @@ def get_not_duplicated_three_digit_number():
     # get_random_number() 함수를 사용하여 random number 생성
     random_number = get_random_number()
 
-    while is_duplicated_number(random_number):
+    while is_duplicated_number(random_number): # is_duplicated_number()가 False일 때까지, False: 3가지 숫자가 모두 다를 때
         random_number = get_random_number()
 
     result = random_number
@@ -298,7 +298,7 @@ def inputChecker():
 
 def main():
 
-    random_number = str(get_not_duplicated_three_digit_number())
+    random_number = str(get_not_duplicated_three_digit_number()) # random_number 생성 및 체크, 세자리가 모두 다른 숫자가 나올 때까지
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
@@ -306,14 +306,14 @@ def main():
     while game:
         user_input = input('Input guess number : ')
 
-        if user_input == '0': break
+        if user_input == '0': break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
 
-        if is_validated_number(user_input):
+        if is_validated_number(user_input): # 사용자가 입력한 number 체크, 3가지 조건
             strikes, balls = get_strikes_or_ball(user_input, random_number)
             print('Strikes : {} , Balls : {}'.format(strikes, balls))
 
-            if strikes == 3:
-                game = inputChecker()
+            if strikes == 3: # 모두 맞췄을 경우,
+                game = inputChecker() # game 진행 여부 체크
 
         else:
             print('Wrong Input , Input again')
