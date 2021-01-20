@@ -284,7 +284,8 @@ def is_no(one_more_input):
 def inputChecker():
     one_input = input('You win, one more(Y/N) ?')
     
-    if one_input == '0' or is_no(one_input):
+    # if one_input == '0' or is_no(one_input):
+    if is_no(one_input):
         game = False
         return game
     
@@ -306,7 +307,7 @@ def main():
     while game:
         user_input = input('Input guess number : ')
 
-        # if user_input == '0': break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
+        if user_input == '0': break # 종료 조건: 사용자가 게임 중 0를 입력하게 되면 종료
 
         if is_validated_number(user_input): # 사용자가 입력한 number 체크, 3가지 조건
             strikes, balls = get_strikes_or_ball(user_input, random_number)
