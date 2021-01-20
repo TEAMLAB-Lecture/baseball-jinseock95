@@ -32,7 +32,7 @@ def is_digit(user_input_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
-    if str(user_input_number).isdigit():
+    if user_input_number.isdigit():
         result = True
     else:
         result = False
@@ -285,7 +285,9 @@ def inputChecker():
     one_input = input('You win, one more(Y/N) ?')
     
     if is_yes(one_input):
-        return main()
+        random_number = str(get_not_duplicated_three_digit_number())
+        print("Random Number is : ", random_number)
+        return random_number, True
     elif one_input == '0' or is_no(one_input):
         return False
     else:
@@ -323,7 +325,7 @@ def main():
                 #     else:
                 #         print('Wrong Input, Input again')
 
-                game = inputChecker() # game 진행 여부 체크
+                random_number, game = inputChecker() # game 진행 여부 체크
 
         else:
             print('Wrong Input, Input again')
